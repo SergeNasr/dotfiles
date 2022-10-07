@@ -109,6 +109,8 @@ alias zshc='vim ~/.zshrc'
 alias todo='vim ~/Notes/todo'
 alias shortcuts='vim ~/Notes/shortcuts'
 
+alias nnote='cd ~/Notes/; vim '
+
 # Directory aliases
 alias core='cd ~/Workspace/core'
 alias scripts='cd ~/Workspace/scripts'
