@@ -23,3 +23,9 @@ sh -c 'curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 Then run `:PlugInstall` in vim. This will install all plugins in `/Users/sergenasr/.local/share/nvim/plugged`
 Hence why in our `init.vim` we have the following line
 `call plug#begin(stdpath('data') . '/plugged')`
+
+## 4. Iterm2
+
+1. Install Fira Code font from [NerdFonts](https://www.nerdfonts.com/)
+2. Select the `.ttf` font you like. Double click on it and install it
+3. After installation, select in under your Iterm profile settings
