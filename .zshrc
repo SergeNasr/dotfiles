@@ -11,6 +11,9 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# My edit
+export PATH=/opt/homebrew/bin:$PATH
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -106,25 +109,8 @@ source $ZSH/oh-my-zsh.sh
 # Editor aliases
 alias keymaps='vim ~/.dotfiles/nvim/.config/nvim/lua/serge/keymaps.lua'
 alias zshc='vim ~/.zshrc'
-alias todo='vim ~/Notes/todo'
-alias shortcuts='vim ~/Notes/shortcuts'
-
-alias nnote='cd ~/Notes/; vim '
-
-# Directory aliases
-alias core='cd ~/Workspace/core'
-alias scripts='cd ~/Workspace/scripts'
-
-# Git aliases
-alias gloa='git pull origin master'
-
-# Tools aliases
-alias sshp='devtool dedicated-ssh-to-container --env prd --app core --component api --session-duration 7200'
-
 
 # My edits
-export PATH=/opt/homebrew/bin:$PATH
-export AWS_PROFILE=engineers-accounting
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -134,7 +120,24 @@ eval "$(pyenv virtualenv-init -)"
 
 
 # Created by `pipx` on 2022-04-24 16:03:14
-export PATH="$PATH:/Users/serge/.local/bin"
+export PATH="$PATH:/Users/sergenasr/.local/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+alias vim="nvim"
+
+# How I installed Java 
+# 1. with hombrew
+# brew install openjdk@17
+# 
+# 2. For the system Java wrappers to find this JDK, symlink it with
+#  sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
+#
+#3. Then ran:
+# echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc                                                                                                                                               
+# echo 'export JAVA_HOME=$(/usr/libexec/java_home -v 17)' >> ~/.zshrc
+export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+alias journal="cd $HOME/Workspace/journal && yarn start"
+export PATH="$PATH:/Users/sergenasr/.yarn/bin"
