@@ -126,6 +126,7 @@ export PATH="$PATH:/Users/sergenasr/.local/bin"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias vim="nvim"
+alias a="alias | grep"
 
 # How I installed Java 
 # 1. with hombrew
