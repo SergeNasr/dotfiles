@@ -19,6 +19,11 @@
    ```bash
    mv ~/.zshrc ~/.zshrc.backup
    ```
+7. Set the key repeat rate of your Mac keyboard to fast:
+   ```bash
+   defaults write -g KeyRepeat -int 1
+   defaults write -g InitialKeyRepeat -int 10
+   ```
 
 ## 1. Soft Links
 ```
