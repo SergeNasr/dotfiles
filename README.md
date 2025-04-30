@@ -1,4 +1,25 @@
 # Installation
+
+## 0. Prerequisites
+
+1. Install [iTerm2](https://iterm2.com/)
+2. Configure iTerm2:
+   - Go to Profiles > Keys > Key Bindings > Presets
+   - Select "Natural Text Editing"
+3. Install [Homebrew](https://brew.sh/):
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+4. Install essential tools:
+   ```bash
+   brew install neovim pyenv
+   ```
+5. Install [Rectangle](https://rectangleapp.com/) for window management
+6. Backup existing zshrc (if it exists):
+   ```bash
+   mv ~/.zshrc ~/.zshrc.backup
+   ```
+
 ## 1. Soft Links
 ```
 cd ~
@@ -10,18 +31,13 @@ ln -s ~/dotfiles/nvim/.config/nvim/init.vim ./init.vim
 ln -s ~/dotfiles/nvim/.config/nvim ./.config/nvim
 ```
 
+After creating the soft links, either:
+- Open a new terminal tab/window, or
+- Run `source ~/.zshrc` to apply the p10k configuration
+
 ## 2. Vim Plug
 
-Install vim plug in Vim's autoload directory.
-I use `/Users/sergenasr/.local/share/nvim/site/autload/` 
-
-```
-sh -c 'curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-```
-
-Then run `:PlugInstall` in vim. This will install all plugins in `/Users/sergenasr/.local/share/nvim/plugged`
-Hence why in our `init.vim` we have the following line
+After the soft links are created, open nvim and run `:PlugInstall` to install all plugins. This will install the plugins in `/Users/sergenasr/.local/share/nvim/plugged`, which is why in our `init.vim` we have the following line:
 `call plug#begin(stdpath('data') . '/plugged')`
 
 ## 4. Iterm2
