@@ -1,52 +1,55 @@
 # Installation
 
-## 0. Prerequisites
+## 0. Overview
+
+This setup process involves a few manual prerequisite steps, followed by an automated script (`install.sh`) that handles the bulk of the configuration. Finally, a couple of post-installation manual steps are required to complete the setup.
+
+**Manual Prerequisites:**
 
 1. Install [iTerm2](https://iterm2.com/)
 2. Configure iTerm2:
    - Go to Profiles > Keys > Key Bindings > Presets
    - Select "Natural Text Editing"
-3. Install [Homebrew](https://brew.sh/):
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-4. Install essential tools:
-   ```bash
-   brew install neovim pyenv
-   ```
-5. Install [Rectangle](https://rectangleapp.com/) for window management
-6. Backup existing zshrc (if it exists):
-   ```bash
-   mv ~/.zshrc ~/.zshrc.backup
-   ```
-7. Set the key repeat rate of your Mac keyboard to fast:
-   ```bash
-   defaults write -g KeyRepeat -int 1
-   defaults write -g InitialKeyRepeat -int 10
-   ```
+3. Install [Rectangle](https://rectangleapp.com/) for window management
 
-## 1. Soft Links
-```
-cd ~
+**The `install.sh` script will perform the following actions:**
 
-ln -s ~/dotfiles/.zshrc ./.zshrc
-ln -s ~/dotfiles/nvim/.config/nvim/vim-plug ./vim-plug
-ln -s ~/dotfiles/nvim/.config/nvim/lua ./lua
-ln -s ~/dotfiles/nvim/.config/nvim/init.vim ./init.vim
-ln -s ~/dotfiles/nvim/.config/nvim ./.config/nvim
-```
+- Install Homebrew (if not already installed).
+- Install `neovim` and `pyenv` using Homebrew.
+- Back up your existing `~/.zshrc` to `~/.zshrc.backup` (if it exists).
+- Create symbolic links for `.zshrc` and nvim configuration files to your home directory and `~/.config`.
+- Set macOS keyboard repeat rate and Press and Hold preferences for a faster typing experience.
+- Configure Git to disable the pager for the `branch` command, improving its usability.
 
-After creating the soft links, either:
-- Open a new terminal tab/window, or
-- Run `source ~/.zshrc` to apply the p10k configuration
+## 1. Automated Installation Script
 
-## 2. Vim Plug
+1.  Clone this repository (if you haven't already):
+    ```bash
+    git clone <your-repo-url> ~/dotfiles
+    cd ~/dotfiles
+    ```
+2.  Make the installation script executable:
+    ```bash
+    chmod +x install.sh
+    ```
+3.  Run the installation script:
+    ```bash
+    ./install.sh
+    ```
 
-After the soft links are created, open nvim and run `:PlugInstall` to install all plugins. This will install the plugins in `/Users/sergenasr/.local/share/nvim/plugged`, which is why in our `init.vim` we have the following line:
-`call plug#begin(stdpath('data') . '/plugged')`
+## 2. Manual Post-Installation Steps
 
-## 4. Iterm2
+After running the `install.sh` script, you still need to perform the following manual steps:
 
-1. Install Fira Code font from [NerdFonts](https://www.nerdfonts.com/)
-2. Select the `.ttf` font you like. Double click on it and install it
-3. After installation, select in under your Iterm profile settings
+1.  **Install Fira Code Font**:
+    - Download and install a Fira Code Nerd Font from [NerdFonts](https://www.nerdfonts.com/).
+    - Select the `.ttf` font you like, double-click it, and install it.
+    - In iTerm2, go to Profiles > Your Profile > Text > Font, and select the installed Fira Code font.
+2.  **Install Vim Plugins**:
+    - Open Neovim (`nvim`).
+    - Run the command `:PlugInstall` to install all configured plugins.
+3.  **Apply Configuration**:
+    - Open a new terminal tab/window, or
+    - Run `source ~/.zshrc` in your current terminal to apply the Zsh and p10k configuration.
+
+Enjoy your new setup!

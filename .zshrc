@@ -142,3 +142,4 @@ export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v 17)
 alias journal="cd $HOME/Workspace/journal && yarn start"
 export PATH="$PATH:/Users/sergenasr/.yarn/bin"
+export PATH=~/.npm-global/bin:$PATH
