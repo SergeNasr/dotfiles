@@ -51,7 +51,8 @@ set smartcase
 " vim-plug
 call plug#begin(stdpath('data') . '/plugged')
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'williamboman/nvim-lsp-installer'
+	Plug 'williamboman/mason.nvim'
+	Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'gruvbox-community/gruvbox'
     " Telescope requires plenary to function
     Plug 'nvim-lua/plenary.nvim'
