@@ -81,6 +81,15 @@ colorscheme gruvbox
 " Use this for dark color schemes
 set background=dark
 
+" Enable transparency
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
+highlight Folded guibg=NONE ctermbg=NONE
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight VertSplit guibg=NONE ctermbg=NONE
+
 " Hide the the Vim Mode text under the lightline box
 set noshowmode
 

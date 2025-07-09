@@ -53,13 +53,29 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
 echo -e "${YELLOW}Configuring Git...${NC}"
 git config --global pager.branch false
 
+# Configure iTerm2 (if it exists)
+if [ -d "/Applications/iTerm.app" ]; then
+    echo -e "${YELLOW}Configuring iTerm2...${NC}"
+    
+    # Set iTerm2 to load preferences from dotfiles folder
+    defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
+    defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+    
+    # Import preferences if the file exists
+    if [ -f "~/dotfiles/iterm2/com.googlecode.iterm2.plist" ]; then
+        defaults import com.googlecode.iterm2 ~/dotfiles/iterm2/com.googlecode.iterm2.plist
+        echo -e "${GREEN}iTerm2 preferences imported.${NC}"
+    fi
+else
+    echo -e "${YELLOW}iTerm2 not found. Install it first, then run this script again.${NC}"
+fi
+
 # Remind about manual steps
 echo -e "${GREEN}Automated installation complete!${NC}"
 echo -e "${YELLOW}Manual steps required:${NC}"
 echo "1. Install iTerm2 from https://iterm2.com/"
-echo "2. Configure iTerm2 with 'Natural Text Editing' key bindings"
-echo "3. Install Rectangle from https://rectangleapp.com/"
-echo "4. Install Fira Code font from NerdFonts (https://www.nerdfonts.com/)"
-echo "5. Select the .ttf font and install it, then select it in iTerm2 profile settings"
-echo "6. Open nvim and run :PlugInstall to install all plugins"
-echo "7. Either open a new terminal or run 'source ~/.zshrc'" 
+echo "2. Install Rectangle from https://rectangleapp.com/"
+echo "3. Install Fira Code font from NerdFonts (https://www.nerdfonts.com/)"
+echo "4. Select the .ttf font and install it, then select it in iTerm2 profile settings"
+echo "5. Open nvim and run :PlugInstall to install all plugins"
+echo "6. Either open a new terminal or run 'source ~/.zshrc'" 
