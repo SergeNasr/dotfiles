@@ -1120,6 +1120,8 @@
 				<key>Red Component</key>
 				<real>0.90980392694473267</real>
 			</dict>
+			<key>Brighten Bold Text (Light)</key>
+			<false/>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
@@ -1128,6 +1130,8 @@
 			<integer>80</integer>
 			<key>Command</key>
 			<string></string>
+			<key>Cursor Boost (Light)</key>
+			<real>0.0</real>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -1545,6 +1549,8 @@
 			<string></string>
 			<key>Silence Bell</key>
 			<false/>
+			<key>Smart Cursor Color (Light)</key>
+			<true/>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
