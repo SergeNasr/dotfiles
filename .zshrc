@@ -127,4 +127,19 @@ export PATH="$PATH:/Users/sergenasr/.local/bin"
 
 alias vim="nvim"
 alias a="alias | grep"
-alias wl="vim ~/Desktop/work_log"
+
+# How I installed Java 
+# 1. with hombrew
+# brew install openjdk@17
+# 
+# 2. For the system Java wrappers to find this JDK, symlink it with
+#  sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
+#
+#3. Then ran:
+# echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc                                                                                                                                               
+# echo 'export JAVA_HOME=$(/usr/libexec/java_home -v 17)' >> ~/.zshrc
+export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+alias journal="cd $HOME/Workspace/journal && yarn start"
+export PATH="$PATH:/Users/sergenasr/.yarn/bin"
+export PATH=~/.npm-global/bin:$PATH
