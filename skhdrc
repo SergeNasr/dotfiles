@@ -1,0 +1,4 @@
+ctrl + shift + alt + cmd - t : open -a "iTerm" 
+ctrl + shift + alt + cmd - b : open -a "Arc"
+ctrl + shift + alt + cmd - c : open -a "Cursor"
+

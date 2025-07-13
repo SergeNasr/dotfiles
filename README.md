@@ -6,20 +6,19 @@ This setup process involves a few manual prerequisite steps, followed by an auto
 
 **Manual Prerequisites:**
 
-1. Install [iTerm2](https://iterm2.com/)
-2. Configure iTerm2:
-   - Go to Profiles > Keys > Key Bindings > Presets
-   - Select "Natural Text Editing"
-3. Install [Rectangle](https://rectangleapp.com/) for window management
+1.  Install [iTerm2](https://iterm2.com/)
+2.  Configure iTerm2:
+    -   Go to Profiles > Keys > Key Bindings > Presets
+    -   Select "Natural Text Editing"
 
 **The `install.sh` script will perform the following actions:**
 
-- Install Homebrew (if not already installed).
-- Install `neovim` and `pyenv` using Homebrew.
-- Back up your existing `~/.zshrc` to `~/.zshrc.backup` (if it exists).
-- Create symbolic links for `.zshrc` and nvim configuration files to your home directory and `~/.config`.
-- Set macOS keyboard repeat rate and Press and Hold preferences for a faster typing experience.
-- Configure Git to disable the pager for the `branch` command, improving its usability.
+-   Install Homebrew (if not already installed).
+-   Install `neovim`, `pyenv`, and `skhd` (a hotkey daemon for macOS) using Homebrew.
+-   Back up your existing `~/.zshrc` to `~/.zshrc.backup` (if it exists).
+-   Create symbolic links for `.zshrc`, `nvim`, and `skhdrc` configuration files.
+-   Set macOS keyboard repeat rate and Press and Hold preferences for a faster typing experience.
+-   Configure Git to disable the pager for the `branch` command, improving its usability.
 
 ## 1. Automated Installation Script
 

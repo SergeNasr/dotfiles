@@ -18,6 +18,8 @@ fi
 # Install essential tools
 echo -e "${YELLOW}Installing essential tools...${NC}"
 brew install neovim pyenv
+brew install koekeishiya/formulae/skhd
+
 
 # Backup existing zshrc
 if [ -f ~/.zshrc ]; then
@@ -38,6 +40,10 @@ ln -sf ~/dotfiles/nvim/.config/nvim/vim-plug ~/vim-plug
 ln -sf ~/dotfiles/nvim/.config/nvim/lua ~/lua
 ln -sf ~/dotfiles/nvim/.config/nvim/init.vim ~/init.vim
 ln -sf ~/dotfiles/nvim/.config/nvim ~/.config/nvim
+ln -sf ~/dotfiles/skhdrc ~/.skhdrc
+
+# Start skhd service (you might have to update permissions)
+skhd --start-service
 
 # Set Mac OS preferences
 echo -e "${YELLOW}Setting Mac OS preferences...${NC}"
