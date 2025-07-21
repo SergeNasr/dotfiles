@@ -1,3 +1,10 @@
+# Perf enhancements
+DISABLE_AUTO_UPDATE="true"
+DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_COMPFIX="true"
+ZSH_DISABLE_COMPFIX=true
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -111,13 +118,31 @@ alias keymaps='vim ~/.dotfiles/nvim/.config/nvim/lua/serge/keymaps.lua'
 alias zshc='vim ~/.zshrc'
 
 # My edits
+#
+# # Speed up completions
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# Ensure completion cache directory exists
+mkdir -p ~/.zsh/cache 2>/dev/null
 
-eval "$(pyenv virtualenv-init -)"
+# Manually run compinit using cached dump (faster)
+autoload -Uz compinit
+compinit -C
 
+# Lazy-load pyenv
+if command -v pyenv &>/dev/null; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  export PATH="$PYENV_ROOT/shims:$PATH"
+
+  function pyenv {
+    unset -f pyenv
+    eval "$(command pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+    pyenv "$@"
+  }
+fi
 
 # Created by `pipx` on 2022-04-24 16:03:14
 export PATH="$PATH:/Users/sergenasr/.local/bin"
