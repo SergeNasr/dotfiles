@@ -17,8 +17,17 @@ fi
 
 # Install essential tools
 echo -e "${YELLOW}Installing essential tools...${NC}"
-brew install neovim pyenv
+brew install neovim pyenv tmux
 brew install koekeishiya/formulae/skhd
+
+# Install tmux plugin manager (tpm)
+echo -e "${YELLOW}Installing tmux plugin manager (tpm)...${NC}"
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    echo -e "${GREEN}tpm installed successfully.${NC}"
+else
+    echo -e "${GREEN}tpm already installed.${NC}"
+fi
 
 
 # Backup existing zshrc
@@ -36,6 +45,7 @@ mkdir -p ~/.config
 
 # Create the symbolic links
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/nvim/.config/nvim/vim-plug ~/vim-plug
 ln -sf ~/dotfiles/nvim/.config/nvim/lua ~/lua
 ln -sf ~/dotfiles/nvim/.config/nvim/init.vim ~/init.vim
@@ -84,4 +94,5 @@ echo "2. Install Rectangle from https://rectangleapp.com/"
 echo "3. Install Fira Code font from NerdFonts (https://www.nerdfonts.com/)"
 echo "4. Select the .ttf font and install it, then select it in iTerm2 profile settings"
 echo "5. Open nvim and run :PlugInstall to install all plugins"
-echo "6. Either open a new terminal or run 'source ~/.zshrc'" 
+echo "6. Start tmux and press prefix + I (usually Ctrl-b + I) to install tmux plugins"
+echo "7. Either open a new terminal or run 'source ~/.zshrc'" 
