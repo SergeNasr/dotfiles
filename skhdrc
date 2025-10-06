@@ -1,4 +1,10 @@
-ctrl + shift + alt + cmd - t : open -a "iTerm" 
-ctrl + shift + alt + cmd - b : open -a "Arc"
-ctrl + shift + alt + cmd - c : open -a "Cursor"
+hyper - t : open -a "iTerm" 
+hyper - b : open -a "Arc"
+hyper - c : open -a "Cursor"
+hyper - p : open -a "Postman"
+hyper - w : open -a "WhatsApp"
+hyper - q : \
+    osascript -e 'tell application "Messages" to quit'; \
+    osascript -e 'tell application "Signal" to quit'; \
+    osascript -e 'tell application "WhatsApp" to quit'
 

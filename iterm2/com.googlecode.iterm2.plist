@@ -350,6 +350,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>C321103E-6D3E-48AF-8C5B-67D18DC81D0F</string>
+	<key>DisableWindowSizeSnap</key>
+	<true/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
