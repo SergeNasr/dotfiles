@@ -173,3 +173,31 @@ syncmain() {
   current_branch=$(git rev-parse --abbrev-ref HEAD)
   git checkout main && git branch -d "$current_branch" && git pull origin main
 }
+
+todoinit() {
+  if [[ ! -d .git ]]; then
+    echo "❌ Not a git repo"
+    return 1
+  fi
+
+  local file="TODO.md"
+  local exclude=".git/info/exclude"
+
+  # Create TODO.md if missing
+  if [[ ! -f $file ]]; then
+    echo "# TODO" > "$file"
+    echo "✅ Created $file"
+  else
+    echo "ℹ️ $file already exists"
+  fi
+
+  # Add to local exclude if not already there
+  mkdir -p .git/info
+  touch "$exclude"
+  if ! grep -qx "$file" "$exclude"; then
+    echo "$file" >> "$exclude"
+    echo "✅ Added $file to local exclude"
+  else
+    echo "ℹ️ $file already excluded"
+  fi
+}
