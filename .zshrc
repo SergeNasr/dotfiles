@@ -171,7 +171,7 @@ export PATH=~/.npm-global/bin:$PATH
 
 syncmain() {
   current_branch=$(git rev-parse --abbrev-ref HEAD)
-  git checkout main && git branch -d "$current_branch" && git pull origin main
+  git checkout main && git pull origin main && git branch -d "$current_branch"
 }
 
 todoinit() {
