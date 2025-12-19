@@ -201,3 +201,6 @@ todoinit() {
     echo "ℹ️ $file already excluded"
   fi
 }
+
+# Added by Antigravity
+export PATH="/Users/sergenasr/.antigravity/antigravity/bin:$PATH"
