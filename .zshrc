@@ -12,14 +12,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Path configuration
+export PATH="/opt/homebrew/bin:/usr/local/opt/openjdk@17/bin:$HOME/.yarn/bin:$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.antigravity/antigravity/bin:$PATH"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# My edit
-export PATH=/opt/homebrew/bin:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -133,8 +133,7 @@ compinit -C
 # Lazy-load pyenv
 if command -v pyenv &>/dev/null; then
   export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  export PATH="$PYENV_ROOT/shims:$PATH"
+  export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
 
   function pyenv {
     unset -f pyenv
@@ -143,9 +142,6 @@ if command -v pyenv &>/dev/null; then
     pyenv "$@"
   }
 fi
-
-# Created by `pipx` on 2022-04-24 16:03:14
-export PATH="$PATH:$HOME/.local/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -163,11 +159,8 @@ alias a="alias | grep"
 #3. Then ran:
 # echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc                                                                                                                                               
 # echo 'export JAVA_HOME=$(/usr/libexec/java_home -v 17)' >> ~/.zshrc
-export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v 17)
 alias journal="cd $HOME/Workspace/journal && yarn start"
-export PATH="$PATH:/Users/sergenasr/.yarn/bin"
-export PATH=~/.npm-global/bin:$PATH
 
 syncmain() {
   current_branch=$(git rev-parse --abbrev-ref HEAD)
@@ -202,5 +195,3 @@ todoinit() {
   fi
 }
 
-# Added by Antigravity
-export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
