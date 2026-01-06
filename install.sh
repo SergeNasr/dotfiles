@@ -44,13 +44,13 @@ cd ~
 mkdir -p ~/.config
 
 # Create the symbolic links
-ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/nvim/.config/nvim/vim-plug ~/vim-plug
-ln -sf ~/dotfiles/nvim/.config/nvim/lua ~/lua
-ln -sf ~/dotfiles/nvim/.config/nvim/init.vim ~/init.vim
-ln -sf ~/dotfiles/nvim/.config/nvim ~/.config/nvim
-ln -sf ~/dotfiles/skhdrc ~/.skhdrc
+ln -sf $HOME/dotfiles/.zshrc ~/.zshrc
+ln -sf $HOME/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf $HOME/dotfiles/nvim/.config/nvim/vim-plug ~/vim-plug
+ln -sf $HOME/dotfiles/nvim/.config/nvim/lua ~/lua
+ln -sf $HOME/dotfiles/nvim/.config/nvim/init.vim ~/init.vim
+ln -sf $HOME/dotfiles/nvim/.config/nvim ~/.config/nvim
+ln -sf $HOME/dotfiles/skhdrc ~/.skhdrc
 
 # Start skhd service (you might have to update permissions)
 skhd --start-service
@@ -74,12 +74,12 @@ if [ -d "/Applications/iTerm.app" ]; then
     echo -e "${YELLOW}Configuring iTerm2...${NC}"
     
     # Set iTerm2 to load preferences from dotfiles folder
-    defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
+    defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/dotfiles/iterm2"
     defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
     
     # Import preferences if the file exists
-    if [ -f "~/dotfiles/iterm2/com.googlecode.iterm2.plist" ]; then
-        defaults import com.googlecode.iterm2 ~/dotfiles/iterm2/com.googlecode.iterm2.plist
+    if [ -f "$HOME/dotfiles/iterm2/com.googlecode.iterm2.plist" ]; then
+        defaults import com.googlecode.iterm2 $HOME/dotfiles/iterm2/com.googlecode.iterm2.plist
         echo -e "${GREEN}iTerm2 preferences imported.${NC}"
     fi
 else
