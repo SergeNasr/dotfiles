@@ -114,7 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Editor aliases
-alias keymaps='vim ~/.dotfiles/nvim/.config/nvim/lua/serge/keymaps.lua'
+alias keymaps='vim $HOME/dotfiles/nvim/.config/nvim/lua/serge/keymaps.lua'
 alias zshc='vim ~/.zshrc'
 
 # My edits
