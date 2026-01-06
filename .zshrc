@@ -114,7 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Editor aliases
-alias keymaps='vim ~/.dotfiles/nvim/.config/nvim/lua/serge/keymaps.lua'
+alias keymaps='vim $HOME/dotfiles/nvim/.config/nvim/lua/serge/keymaps.lua'
 alias zshc='vim ~/.zshrc'
 
 # My edits
@@ -145,7 +145,7 @@ if command -v pyenv &>/dev/null; then
 fi
 
 # Created by `pipx` on 2022-04-24 16:03:14
-export PATH="$PATH:/Users/sergenasr/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -203,4 +203,4 @@ todoinit() {
 }
 
 # Added by Antigravity
-export PATH="/Users/sergenasr/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
