@@ -115,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Editor aliases
 alias keymaps='vim $HOME/dotfiles/nvim/.config/nvim/lua/serge/keymaps.lua'
-alias zshc='vim ~/.zshrc'
+alias zshrc='vim ~/.zshrc'
 
 # My edits
 #
@@ -195,3 +195,11 @@ todoinit() {
   fi
 }
 
+# tmux aliases
+alias t="tmux"
+alias tls="tmux ls"
+alias ta="tmux attach -t"
+alias tk="tmux kill-session -t"
+tn() {
+    tmux new -A -s "$(basename "$PWD")"
+}
