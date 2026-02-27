@@ -17,7 +17,7 @@ fi
 
 # Install essential tools
 echo -e "${YELLOW}Installing essential tools...${NC}"
-brew install neovim pyenv tmux
+brew install neovim pyenv tmux fzf
 brew install koekeishiya/formulae/skhd
 
 # Install tmux plugin manager (tpm)
