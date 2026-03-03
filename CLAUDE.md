@@ -23,6 +23,7 @@ The install script symlinks configs, installs Homebrew packages (neovim, pyenv, 
   - `lua/serge/init.lua` — Entry point that requires all Lua modules
   - `lua/serge/` — Individual Lua configs: keymaps, lightline, telescope, mason
 - `skhdrc` — skhd hotkey daemon config (hyper key app launchers)
+- `claude/` — Claude Code configuration (settings, status line, plugin configs)
 - `iterm2/` — iTerm2 preferences and gruvbox color scheme
 - `install.sh` — Automated setup script
 
@@ -33,6 +34,9 @@ The install script creates these symlinks (source → target):
 - `.tmux.conf` → `~/.tmux.conf`
 - `nvim/.config/nvim/` → `~/.config/nvim`
 - `skhdrc` → `~/.skhdrc`
+- `claude/settings.json` → `~/.claude/settings.json`
+- `claude/statusline.sh` → `~/.claude/statusline.sh`
+- `claude/plugins/*.json` → `~/.claude/plugins/*.json` (4 config files)
 
 ## Key Conventions
 

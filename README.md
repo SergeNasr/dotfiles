@@ -17,6 +17,7 @@ This setup process involves a few manual prerequisite steps, followed by an auto
 -   Install `neovim`, `pyenv`, and `skhd` (a hotkey daemon for macOS) using Homebrew.
 -   Back up your existing `~/.zshrc` to `~/.zshrc.backup` (if it exists).
 -   Create symbolic links for `.zshrc`, `nvim`, and `skhdrc` configuration files.
+-   Create symbolic links for Claude Code configuration (`settings.json`, `statusline.sh`, and plugin configs).
 -   Set macOS keyboard repeat rate and Press and Hold preferences for a faster typing experience.
 -   Configure Git to disable the pager for the `branch` command, improving its usability.
 
@@ -47,7 +48,8 @@ After running the `install.sh` script, you still need to perform the following m
 2.  **Install Vim Plugins**:
     - Open Neovim (`nvim`).
     - Run the command `:PlugInstall` to install all configured plugins.
-3.  **Apply Configuration**:
+3.  **Install Claude Code**: `npm install -g @anthropic-ai/claude-code` (or via Homebrew)
+4.  **Apply Configuration**:
     - Open a new terminal tab/window, or
     - Run `source ~/.zshrc` in your current terminal to apply the Zsh and p10k configuration.
 

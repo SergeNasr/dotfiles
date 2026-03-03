@@ -52,6 +52,16 @@ ln -sf $HOME/dotfiles/nvim/.config/nvim/init.vim ~/init.vim
 ln -sf $HOME/dotfiles/nvim/.config/nvim ~/.config/nvim
 ln -sf $HOME/dotfiles/skhdrc ~/.skhdrc
 
+# Claude Code configuration
+echo -e "${YELLOW}Setting up Claude Code configuration...${NC}"
+mkdir -p ~/.claude/plugins
+ln -sf $HOME/dotfiles/claude/settings.json ~/.claude/settings.json
+ln -sf $HOME/dotfiles/claude/statusline.sh ~/.claude/statusline.sh
+ln -sf $HOME/dotfiles/claude/plugins/installed_plugins.json ~/.claude/plugins/installed_plugins.json
+ln -sf $HOME/dotfiles/claude/plugins/blocklist.json ~/.claude/plugins/blocklist.json
+ln -sf $HOME/dotfiles/claude/plugins/known_marketplaces.json ~/.claude/plugins/known_marketplaces.json
+ln -sf $HOME/dotfiles/claude/plugins/config.json ~/.claude/plugins/config.json
+
 # Start skhd service (you might have to update permissions)
 skhd --start-service
 
