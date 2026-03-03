@@ -1,26 +1,6 @@
 {
   "version": 2,
   "plugins": {
-    "commit-commands@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/sergenasr/.claude/plugins/cache/claude-plugins-official/commit-commands/55b58ec6e564",
-        "version": "55b58ec6e564",
-        "installedAt": "2026-01-03T18:25:05.427Z",
-        "lastUpdated": "2026-02-26T22:13:58.778Z",
-        "gitCommitSha": "6d3752c000e2b3d0e6137bd7adb04895d6f40f14"
-      }
-    ],
-    "frontend-design@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/sergenasr/.claude/plugins/cache/claude-plugins-official/frontend-design/55b58ec6e564",
-        "version": "55b58ec6e564",
-        "installedAt": "2026-01-03T18:25:05.427Z",
-        "lastUpdated": "2026-02-26T22:13:58.777Z",
-        "gitCommitSha": "6d3752c000e2b3d0e6137bd7adb04895d6f40f14"
-      }
-    ],
     "playground@claude-plugins-official": [
       {
         "scope": "user",
