@@ -56,8 +56,12 @@ tn() {
 }
 
 ws() {
-    local dir
-    dir=$(ls "$HOME/Workspace" | fzf --query="${1:-}" --select-1 --exit-0) && cd "$HOME/Workspace/$dir"
+    if [[ "$1" == "." ]]; then
+        cd "$HOME/Workspace"
+    else
+        local dir
+        dir=$(ls "$HOME/Workspace" | fzf --query="${1:-}" --select-1 --exit-0) && cd "$HOME/Workspace/$dir"
+    fi
 }
 
 syncmain() {
