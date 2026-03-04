@@ -23,8 +23,7 @@ autoload -Uz compinit
 compinit -C
 
 # Environment
-export PATH="/opt/homebrew/bin:/usr/local/opt/openjdk@17/bin:$HOME/.yarn/bin:$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.antigravity/antigravity/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export PATH="/opt/homebrew/bin:$HOME/.yarn/bin:$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.antigravity/antigravity/bin:$PATH"
 
 # Lazy-load pyenv
 if command -v pyenv &>/dev/null; then
