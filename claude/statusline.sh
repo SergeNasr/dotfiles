@@ -12,6 +12,13 @@ input_tokens=$(echo "$json" | jq -r '.context_window.total_input_tokens // 0')
 output_tokens=$(echo "$json" | jq -r '.context_window.total_output_tokens // 0')
 used_pct=$(echo "$json" | jq -r '.context_window.used_percentage // 0')
 
+# ANSI colors
+cyan="\033[36m"
+green="\033[32m"
+yellow="\033[33m"
+red="\033[31m"
+reset="\033[0m"
+
 # Format directory (collapse $HOME to ~)
 dir="${cwd/#$HOME/~}"
 
@@ -25,9 +32,18 @@ if [ -n "$cwd" ] && [ -d "$cwd/.git" ]; then
     ins=$(echo "$shortstat" | grep -oE '[0-9]+ insertion' | grep -oE '[0-9]+' || true)
     del=$(echo "$shortstat" | grep -oE '[0-9]+ deletion' | grep -oE '[0-9]+' || true)
     changes=""
-    [ -n "$ins" ] && changes="+${ins}"
-    [ -n "$del" ] && changes="${changes:+$changes, }-${del}"
-    [ -n "$changes" ] && git_info="$branch ($changes)"
+    ins_part=""
+    del_part=""
+    [ -n "$ins" ] && ins_part="${green}+${ins}${reset}"
+    [ -n "$del" ] && del_part="${red}-${del}${reset}"
+    if [ -n "$ins_part" ] && [ -n "$del_part" ]; then
+      changes="${ins_part}, ${del_part}"
+    elif [ -n "$ins_part" ]; then
+      changes="$ins_part"
+    elif [ -n "$del_part" ]; then
+      changes="$del_part"
+    fi
+    [ -n "$changes" ] && git_info="$branch (${changes})"
   fi
 fi
 
@@ -46,12 +62,6 @@ cost_fmt=$(awk "BEGIN { printf \"$%.2f\", $cost }")
 
 # Format context percentage
 ctx_pct=$(awk "BEGIN { printf \"%.0f\", $used_pct }")
-
-# ANSI colors
-cyan="\033[36m"
-yellow="\033[33m"
-red="\033[31m"
-reset="\033[0m"
 
 # Context color: red if >80%, else yellow
 if [ "$ctx_pct" -gt 80 ] 2>/dev/null; then
