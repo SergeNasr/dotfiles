@@ -61,6 +61,7 @@ ln -sf $HOME/dotfiles/claude/plugins/installed_plugins.json ~/.claude/plugins/in
 ln -sf $HOME/dotfiles/claude/plugins/blocklist.json ~/.claude/plugins/blocklist.json
 ln -sf $HOME/dotfiles/claude/plugins/known_marketplaces.json ~/.claude/plugins/known_marketplaces.json
 ln -sf $HOME/dotfiles/claude/plugins/config.json ~/.claude/plugins/config.json
+ln -sf $HOME/dotfiles/claude/skills ~/.claude/skills
 
 # Start skhd service (you might have to update permissions)
 skhd --start-service
