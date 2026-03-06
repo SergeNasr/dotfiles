@@ -23,7 +23,7 @@ autoload -Uz compinit
 compinit -C
 
 # Environment
-export PATH="/opt/homebrew/bin:$HOME/.yarn/bin:$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.antigravity/antigravity/bin:$PATH"
+export PATH="/opt/homebrew/bin:$HOME/.yarn/bin:$HOME/.npm-global/bin:$HOME/.local/bin:$HOME/.antigravity/antigravity/bin:$HOME/go/bin:$PATH"
 
 # Lazy-load pyenv
 if command -v pyenv &>/dev/null; then
