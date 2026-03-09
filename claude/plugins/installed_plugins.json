@@ -10,6 +10,16 @@
         "lastUpdated": "2026-03-04T03:48:18.543Z",
         "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
       }
+    ],
+    "gopls-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/sergenasr/.claude/plugins/cache/claude-plugins-official/gopls-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-08T17:22:23.012Z",
+        "lastUpdated": "2026-03-08T17:22:23.012Z",
+        "gitCommitSha": "205b6e0b30366a969412d9aab7b99bea99d58db1"
+      }
     ]
   }
 }

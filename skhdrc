@@ -1,5 +1,5 @@
 hyper - t : open -a "iTerm" 
-hyper - b : open -a "Arc"
+hyper - b : open -a "Google Chrome"
 hyper - c : open -a "Cursor"
 hyper - p : open -a "Postman"
 hyper - w : open -a "WhatsApp"
