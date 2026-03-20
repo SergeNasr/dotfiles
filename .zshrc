@@ -50,6 +50,8 @@ alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
 
 # Functions
+copy() { tee /dev/tty | pbcopy }
+
 tn() {
     tmux new -A -s "$(basename "$PWD")"
 }
@@ -62,6 +64,12 @@ ws() {
         dir=$(ls "$HOME/Workspace" | fzf --query="${1:-}" --select-1 --exit-0) && cd "$HOME/Workspace/$dir"
     fi
 }
+
+_ws() {
+    local dirs=("$HOME/Workspace"/*(/:t))
+    compadd -a dirs
+}
+compdef _ws ws
 
 syncmain() {
   current_branch=$(git rev-parse --abbrev-ref HEAD)
