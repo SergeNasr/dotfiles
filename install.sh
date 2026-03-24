@@ -17,8 +17,36 @@ fi
 
 # Install essential tools
 echo -e "${YELLOW}Installing essential tools...${NC}"
-brew install neovim pyenv tmux fzf
+brew install neovim pyenv tmux fzf node
 brew install koekeishiya/formulae/skhd
+
+# Install Oh My Zsh
+echo -e "${YELLOW}Installing Oh My Zsh...${NC}"
+if [ ! -d ~/.oh-my-zsh ]; then
+    RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    echo -e "${GREEN}Oh My Zsh installed.${NC}"
+else
+    echo -e "${GREEN}Oh My Zsh already installed.${NC}"
+fi
+
+# Install Powerlevel10k theme
+echo -e "${YELLOW}Installing Powerlevel10k theme...${NC}"
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    echo -e "${GREEN}Powerlevel10k installed.${NC}"
+else
+    echo -e "${GREEN}Powerlevel10k already installed.${NC}"
+fi
+
+# Install vim-plug
+echo -e "${YELLOW}Installing vim-plug...${NC}"
+if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo -e "${GREEN}vim-plug installed.${NC}"
+else
+    echo -e "${GREEN}vim-plug already installed.${NC}"
+fi
 
 # Install tmux plugin manager (tpm)
 echo -e "${YELLOW}Installing tmux plugin manager (tpm)...${NC}"
@@ -104,6 +132,6 @@ echo "1. Install iTerm2 from https://iterm2.com/"
 echo "2. Install Rectangle from https://rectangleapp.com/"
 echo "3. Install Fira Code font from NerdFonts (https://www.nerdfonts.com/)"
 echo "4. Select the .ttf font and install it, then select it in iTerm2 profile settings"
-echo "5. Open nvim and run :PlugInstall to install all plugins"
+echo "5. Open nvim and run :PlugInstall to install all plugins (vim-plug is pre-installed)"
 echo "6. Start tmux and press prefix + I (usually Ctrl-b + I) to install tmux plugins"
 echo "7. Either open a new terminal or run 'source ~/.zshrc'" 
