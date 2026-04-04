@@ -4,10 +4,10 @@
     "playground@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/sergenasr/.claude/plugins/cache/claude-plugins-official/playground/72b975468071",
-        "version": "72b975468071",
+        "installPath": "/Users/sergenasr/.claude/plugins/cache/claude-plugins-official/playground/unknown",
+        "version": "unknown",
         "installedAt": "2026-03-03T01:27:38.926Z",
-        "lastUpdated": "2026-03-27T03:00:00.009Z",
+        "lastUpdated": "2026-03-27T03:08:12.994Z",
         "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
       }
     ],
