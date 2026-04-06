@@ -61,7 +61,7 @@ ws() {
         cd "$HOME/Workspace"
     else
         local dir
-        dir=$(ls "$HOME/Workspace" | fzf --query="${1:-}" --select-1 --exit-0) && cd "$HOME/Workspace/$dir"
+        dir=$(ls "$HOME/Workspace" | fzf --exact --query="${1:-}" --select-1 --exit-0) && cd "$HOME/Workspace/$dir"
     fi
 }
 
@@ -104,3 +104,35 @@ todoinit() {
 
 # Powerlevel10k config
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# Crosby
+# Pytest with loud stdout, good for using tests as print debugging
+alias ptt='pytest -rP --capture=sys --show-capture=stdout --no-cov -vv'
+
+# Pytest run all tests without coverage, fastest way to run a directory
+alias pta='pytest --capture=sys --show-capture=stdout --no-cov'
+
+# Pytest with loud stdout but only for failing tests
+alias ptx='pytest -rx --capture=sys --show-capture=stdout --no-cov -vv'
+
+alias activate='source .venv/bin/activate'
+#compdef gt
+###-begin-gt-completions-###
+#
+# yargs command completion script
+#
+# Installation: gt completion >> ~/.zshrc
+#    or gt completion >> ~/.zprofile on OSX.
+#
+_gt_yargs_completions()
+{
+  local reply
+  local si=$IFS
+  IFS=$'
+' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" gt --get-yargs-completions "${words[@]}"))
+  IFS=$si
+  _describe 'values' reply
+}
+compdef _gt_yargs_completions gt
+###-end-gt-completions-###
